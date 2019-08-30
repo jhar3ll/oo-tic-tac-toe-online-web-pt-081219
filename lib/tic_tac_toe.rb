@@ -40,26 +40,32 @@ class TicTacToe
       return false
       puts "the position is taken!"
     end 
-  end 
+  end
   
   def valid_move?(index)
-    if @board[index] == (0...8) 
-      return true 
-    elsif @board[index] == " "
+    if index.between?(0,8) && @board[index] == " "
       return true 
     else 
       return false 
     end 
   end 
   
+  
   def turn
     puts "Please type a number between 0-10 that is not already taken."
+    
     @user_input = gets.strip
+    index = input_to_index(@user_input)
+    if valid_move?(index)
+      move(index, current_player)
+      display_board 
+    else 
+      turn 
+    end 
     
-    input_to_index(@user_input)
+     end
     
-  end 
-  
+    
   def turn_count
     @board.count { |n| n == "X" || n == "O"}
   end 
