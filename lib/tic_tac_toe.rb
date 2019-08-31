@@ -80,6 +80,7 @@ class TicTacToe
   
   def won?
     if @board[WIN_COMBINATIONS] == "X"
+      binding.pry 
      return @board[WIN_COMBINATIONS] == "X"
     elsif @board[WIN_COMBINATIONS] == "O"
      return @board[WIN_COMBINATIONS] == "O"
