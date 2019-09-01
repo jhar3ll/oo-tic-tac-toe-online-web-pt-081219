@@ -104,7 +104,19 @@ class TicTacToe
     return nil 
    end
  end
-      
+ 
+   def play 
+     until full?
+     turn 
+    end 
+    
+    if won? 
+      puts "Congratulaions, #{winner}, you are the winner!"
+    end 
+    else
+      puts "The game has ended in a draw!"
+    end 
+  end 
   
     
     
