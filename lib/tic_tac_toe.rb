@@ -34,12 +34,7 @@ class TicTacToe
   end
   
   def position_taken?(index)
-    if @board[index] != " "
-      return true  
-    else
-      return false
-      puts "the position is taken!"
-    end 
+    @board[index] != " "
   end
   
   def valid_move?(index)
@@ -62,8 +57,7 @@ class TicTacToe
     else 
       turn 
     end 
-    
-     end
+  end
     
     
   def turn_count
@@ -79,19 +73,21 @@ class TicTacToe
   end
   
   def won?
+    return false if draw?
     WIN_COMBINATIONS.any? do |combo|
-      @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]] && @board[combo[0]] != " "
+      if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]] 
       return combo 
      end
-      return false 
+   end 
+     # return false 
    end
 
   def full?
-    @board.all? { |element| element == "X" || element == "O"}
+    @board.all? { |element| element != " "}
   end 
   
   def draw?
-    if full? && !won?
+    return true if full? && !won?
   end 
     
     
