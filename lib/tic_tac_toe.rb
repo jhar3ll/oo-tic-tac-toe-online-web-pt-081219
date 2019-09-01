@@ -86,10 +86,11 @@ class TicTacToe
   
   def draw?
     return true if full? && !won?
+    puts "Cat's Game!"
   end 
     
   def over?
-    return true if full? || won?
+    return true if draw? || won?
   end 
   
   def winner
@@ -105,31 +106,20 @@ class TicTacToe
    end
  end
  
-   def play 
-     until full?
-     turn 
-    end 
-    
-    if won? 
-      puts "Congratulaions, #{winner}, you are the winner!"
-    end 
-    else
-      puts "The game has ended in a draw!"
-    end 
+ def play 
+  turn until over?
+   if won? 
+     puts "Congratulations #{winner}!"
+   elsif draw?
+     puts "Cat's Game!"
   end 
-  
-    
-    
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ end 
 end 
+
+
+
+
+
+
+ 
+   
