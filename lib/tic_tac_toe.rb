@@ -77,7 +77,7 @@ class TicTacToe
       if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]] 
       return combo 
      end
-   end 
+    end 
    end
 
   def full?
@@ -91,6 +91,19 @@ class TicTacToe
   def over?
     return true if full? || won?
   end 
+  
+  def winner
+   x_token = "X"
+   o_token = "O"
+   
+   if won? && @board.count("X") > @board.count("O")
+     return x_token
+   elsif won? && @board.count("X") <= @board.count("O")
+    return o_token
+   else 
+    return nil 
+   end
+ end
       
   
     
