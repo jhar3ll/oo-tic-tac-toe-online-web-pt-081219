@@ -79,15 +79,31 @@ class TicTacToe
   end
   
   def won?
-    if @board[WIN_COMBINATIONS] == "X"
-      binding.pry 
-     return @board[WIN_COMBINATIONS] == "X"
-    elsif @board[WIN_COMBINATIONS] == "O"
-     return @board[WIN_COMBINATIONS] == "O"
-    else 
-      false
-    end
-  end
+    WIN_COMBINATIONS.any? do |combo|
+      @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]] && @board[combo[0]] != " "
+      return combo 
+     end
+      return false 
+   end
+
+  def full?
+    @board.all? { |element| element == "X" || element == "O"}
+  end 
+  
+  def draw?
+    if full? && !won?
+  end 
+    
+    
+   # if @board[WIN_COMBINATIONS] == "X"
+     # binding.pry 
+    # return @board[WIN_COMBINATIONS] == "X"
+   #elsif @board[WIN_COMBINATIONS] == "O"
+     #return @board[WIN_COMBINATIONS] == "O"
+   # else 
+      #false
+   # end
+
       
   
     
