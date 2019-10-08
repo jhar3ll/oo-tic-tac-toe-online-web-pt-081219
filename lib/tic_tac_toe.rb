@@ -1,5 +1,3 @@
-require 'pry'
-
 class TicTacToe
   
   def initialize
@@ -99,8 +97,10 @@ class TicTacToe
    
    if won? && @board.count("X") > @board.count("O")
      return x_token
+     puts "Congratulaions X!"
    elsif won? && @board.count("X") <= @board.count("O")
     return o_token
+    puts "Congratulaions O!"
    else 
     return nil 
    end
@@ -114,6 +114,9 @@ class TicTacToe
      puts "Cat's Game!"
   end 
  end 
+   until over? do 
+    turn
+  end 
 end 
 
 
